@@ -1,7 +1,6 @@
 class Solution {
 public:
 	string simplifyPath(string path) {
-		// "/a/c/"
 		int ptr = 0;
 		while (true) {
 			if (ptr + 1 < path.size()) {
