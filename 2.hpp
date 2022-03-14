@@ -1,41 +1,41 @@
 class Solution {
 public:
 	ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-		ListNode* root_result = new ListNode();
+		ListNode* rootResult = new ListNode();
 
-		int l1_val = l1->val;
-		int l2_val = l2->val;
-		int carry = 0, sum = l1_val + l2_val;
+		int l1Val = l1->val;
+		int l2Val = l2->val;
+		int carry = 0, sum = l1Val + l2Val;
 		carry = sum / 10;
 		sum %= 10;
 
-		ListNode* next_node_1 = l1->next;
-		ListNode* next_node_2 = l2->next;
+		ListNode* nextNode1 = l1->next;
+		ListNode* nextNode2 = l2->next;
 
-		root_result->val = sum;
-		ListNode* old_result = root_result;
-		while (next_node_1 || next_node_2 || carry != 0) {
-			ListNode* new_result = new ListNode();
-			old_result->next = new_result;
+		rootResult->val = sum;
+		ListNode* oldResult = rootResult;
+		while (nextNode1 || nextNode2 || carry != 0) {
+			ListNode* newResult = new ListNode();
+			oldResult->next = newResult;
 
-			l1_val = 0;
-			l2_val = 0;
-			if (next_node_1) {
-				l1_val = next_node_1->val;
-				next_node_1 = next_node_1->next;
+			l1Val = 0;
+			l2Val = 0;
+			if (nextNode1) {
+				l1Val = nextNode1->val;
+				nextNode1 = nextNode1->next;
 			}
-			if (next_node_2) {
-				l2_val = next_node_2->val;
-				next_node_2 = next_node_2->next;
+			if (nextNode2) {
+				l2Val = nextNode2->val;
+				nextNode2 = nextNode2->next;
 			}
 
-			sum = l1_val + l2_val + carry;
+			sum = l1Val + l2Val + carry;
 			carry = sum / 10;
 			sum %= 10;
 
-			new_result->val = sum;
-			old_result = new_result;
+			newResult->val = sum;
+			oldResult = newResult;
 		}
-		return root_result;
+		return rootResult;
 	}
 };
